@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Love Album 💖</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Relationship Album</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>💖 Our Love Album</h1>
-    <div class="card-grid">
-      <a href="our-love.html" class="card">💌 Our Love</a>
-      <a href="our-songs.html" class="card">🎵 Our Songs</a>
-      <a href="our-games.html" class="card">🎮 Our Games</a>
-      <a href="our-memories.html" class="card">📸 Our Memories</a>
-    </div>
-  </div>
+  <header>
+    <h1>Our Love Album 💕</h1>
+    <p>Every page is a piece of our story</p>
+  </header>
 
-  <script src="script.js"></script>
+  <nav id="navbar">
+    <!-- Links will be added dynamically -->
+  </nav>
+
+  <section id="welcome-section">
+    <h2>Welcome, My Love 💌</h2>
+    <p>
+      This is our forever corner — filled with laughter, memories, music,
+      games, and handwritten love. Let’s make every click a moment to
+      remember. Ready to dive into our story?
+    </p>
+    <button onclick="navigateTo('storybook.html')">Start Reading</button>
+  </section>
+
+  <footer>
+    Made with ❤️ just for us. Distance means so little when someone means so much.
+  </footer>
+
+  <script>
+    const pages = [
+      { name: 'Storybook 📖', link: 'storybook.html' },
+      { name: 'Playground 🎮', link: 'playground.html' },
+      { name: 'Mixtape 🎶', link: 'mixtape.html' },
+      { name: 'Keepsake 🎁', link: 'keepsake.html' },
+      { name: 'Letters ✉️', link: 'letters.html' }
+    ];
+
+    window.onload = function () {
+      const nav = document.getElementById('navbar');
+      pages.forEach(page => {
+        const anchor = document.createElement('a');
+        anchor.href = page.link;
+        anchor.textContent = page.name;
+        nav.appendChild(anchor);
+      });
+    };
+
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
 </body>
 </html>
