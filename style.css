@@ -6,6 +6,9 @@ body {
   line-height: 1.6;
   text-align: center;
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* Apply special font to headers */
@@ -73,6 +76,28 @@ footer {
   color: white;
   padding: 10px;
   border-radius: 20px 20px 0 0;
-  margin-top: 40px;
+  margin-top: auto;
   font-size: 0.9em;
 }
+
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 6s ease-in infinite;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
