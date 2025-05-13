@@ -26,10 +26,12 @@
     </p>
     <button onclick="navigateTo('storybook.html')">Start Reading</button>
   </section>
-
+  <div class="hearts-container" id="hearts"></div>
   <footer>
     Made with ❤️ just for us. Distance means so little when someone means so much.
   </footer>
+
+
 
   <script>
     const pages = [
@@ -55,23 +57,25 @@
     }
   </script>
   <script>
-  // Floating hearts generator
+  const heartContainer = document.getElementById("hearts");
+
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.textContent = "💖";
 
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 15 + 15 + "px";
-    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    heart.style.animationDuration = Math.random() * 2 + 4 + "s";
 
-    document.body.appendChild(heart);
+    heartContainer.appendChild(heart);
 
     setTimeout(() => {
       heart.remove();
     }, 6000);
-  }, 500);
+  }, 400);
 </script>
+
 
 </body>
 </html>
