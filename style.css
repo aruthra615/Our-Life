@@ -81,13 +81,23 @@ footer {
 }
 
 /* Floating Hearts */
-.heart {
+.hearts-container {
   position: fixed;
-  bottom: -10px;
-  font-size: 20px;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  color: #ff69b4;
   animation: float 6s ease-in infinite;
   opacity: 0.8;
-  z-index: 0;
 }
 
 @keyframes float {
