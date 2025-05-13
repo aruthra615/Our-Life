@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Storybook Flipbook</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Basic Flipbook container */
+    #flipbook {
+      width: 800px;
+      height: 500px;
+      margin: 50px auto;
+    }
+
+    #flipbook .page {
+      background-color: #fffafa;
+      padding: 20px;
+      font-size: 18px;
+      box-shadow: 0 0 10px #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left-page {
+      flex-direction: column;
+    }
+
+    .left-page img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10px;
+    }
+
+    .right-page {
+      flex-direction: column;
+      text-align: left;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .right-page h2 {
+      color: #ff1493;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 10px;
+    }
+
+    .right-page p {
+      color: #555;
+    }
+
+    button.back-home {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: #ff69b4;
+      animation: float 6s ease-in infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <main>
+      <h1 style="text-align:center; font-family:'Pacifico', cursive; color:#ff1493;">Our Storybook 📖</h1>
+
+      <div id="flipbook">
+        <!-- Page 1 -->
+        <div class="page left-page">
+          <img src="images/memory1.jpg" alt="Memory 1">
+        </div>
+        <div class="page right-page">
+          <h2>How We Met</h2>
+          <p>It all began at a college fest. You were in black. I spilled coffee. Somehow, we both smiled. That moment rewrote our story.</p>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="page left-page">
+          <img src="images/memory2.jpg" alt="Memory 2">
+        </div>
+        <div class="page right-page">
+          <h2>First Call</h2>
+          <p>Hours flew by as we talked about everything and nothing. That first call felt like home.</p>
+        </div>
+
+        <!-- Add more pages here -->
+      </div>
+
+      <button class="back-home" onclick="window.location.href='index.html'">← Back to Home</button>
+    </main>
+    <footer style="text-align:center; background:#ffc0cb; padding:10px; border-radius: 20px 20px 0 0;">
+      Every memory is a page of our forever 💌
+    </footer>
+  </div>
+
+  <div class="hearts-container" id="hearts"></div>
+
+  <script src="js/turn.min.js"></script>
+  <script>
+    // Initialize flipbook
+    window.onload = function () {
+      $('#flipbook').turn({
+        width: 800,
+        height: 500,
+        autoCenter: true
+      });
+
+      // Floating hearts
+      const heartContainer = document.getElementById("hearts");
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        heart.style.animationDuration = Math.random() * 2 + 4 + "s";
+        heartContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }, 400);
+    }
+  </script>
+  <!-- jQuery (required for turn.js) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
