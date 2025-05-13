@@ -1,46 +1,99 @@
-body {
+/* Base Reset */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #FFDDE1, #FFF1F1);
-  color: #5D4157;
+  box-sizing: border-box;
+}
+
+/* Fonts and Base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 5px solid #ff4d6d;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Navigation */
+nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  gap: 15px;
+  margin: 20px 0;
 }
 
-.container {
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 30px;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
-  gap: 20px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 30px 10px;
-  font-size: 1.2em;
+nav a {
   text-decoration: none;
-  color: #5D4157;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, background 0.3s ease;
+  background-color: #ffe4e1;
+  color: #c71585;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
 }
 
-.card:hover {
+nav a:hover {
+  background-color: #ffb6c1;
   transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Sections */
+section {
+  padding: 30px;
+  margin: 20px;
+  background: #fffafa;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Titles */
+h1, h2 {
+  font-family: 'Pacifico', cursive;
+  color: #ff1493;
+  text-shadow: 1px 1px #fff0f5;
+}
+
+/* Buttons */
+button {
+  padding: 10px 18px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff1493;
+}
+
+/* Footer */
+footer {
+  background: #ffb6c1;
+  padding: 15px;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  color: white;
+  font-size: 0.9em;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    margin: 10px;
+  }
 }
